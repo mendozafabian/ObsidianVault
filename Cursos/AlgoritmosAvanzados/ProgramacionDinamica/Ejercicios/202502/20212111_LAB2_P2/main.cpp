@@ -16,7 +16,10 @@ void calcular(int *billetes, int tamanio) {
     for (int i = 0; i < tamanio; i++) {
         suma += billetes[i];
     }
-    int matriz[tamanio][suma + 1]{};
+    int matriz[tamanio][suma + 1];
+    for (int i = 0; i <= suma; i++) {
+        matriz[0][i] = 0;
+    }
     for (int i = 0; i < tamanio; i++) {
         matriz[i][0] = 1;
     }
