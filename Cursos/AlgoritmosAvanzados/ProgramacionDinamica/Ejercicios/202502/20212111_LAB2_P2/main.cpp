@@ -11,13 +11,6 @@ void imprimir(int *matriz[], int x, int y) {
     }
 }
 
-int max(int a, int b) {
-    if (a > b) {
-        return a;
-    }
-    return b;
-}
-
 void calcular(int *billetes, int tamanio) {
     int suma = 0;
     for (int i = 0; i < tamanio; i++) {

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
+                "file": "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "11-SubsetSumPD"
+              "title": "12-CoinChangePD"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 263.5
   },
   "right": {
     "id": "ba97cb1c558077eb",
@@ -190,27 +190,27 @@
   },
   "active": "f9614d8964879f30",
   "lastOpenFiles": [
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp91b20",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp4dcc0",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/Testing/Temporary/LastTest.log.tmp0b186",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmpf74e8",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp7c5b3",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp9f426",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmpfa407",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp5913d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp54567",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/9-CoinLineProblemPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/2-CoinRowPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log.tmpb3a9b",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.obj.d",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXXModules.json.tmpfa0c9",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.obj.modmap.tmp217aa",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmpa6b06",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.rsp",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log.tmp5f718",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.obj",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.ddi",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/8-RobotWoodCutterPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/7-BirdCagePD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/2-CoinRowPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
     "Sin título.md",
     "Bienvenido.md"

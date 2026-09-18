@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.3)
-project(20212111_P2)
+project(20212111_LAB2_P2)
 
 set(CMAKE_CXX_STANDARD 20)
 
