@@ -11,14 +11,6 @@ void imprimir(int *matriz[], int x, int y) {
     }
 }
 
-
-int max(int a, int b) {
-    if (a > b) {
-        return a;
-    }
-    return b;
-}
-
 void calcular(int *billetes, int tamanio) {
     int suma = 0;
     for (int i = 0; i < tamanio; i++) {
@@ -31,7 +23,7 @@ void calcular(int *billetes, int tamanio) {
     for (int i = 1; i < tamanio; i++) {
         for (int j = 1; j <= suma; j++) {
             if (billetes[i]<=j) {
-                matriz[i][j] = max(matriz[i-1][j], matriz[i-1][j-billetes[i]]);
+                matriz[i][j] = matriz[i-1][j-billetes[i]];
             }else {
                 matriz[i][j] = matriz[i-1][j];
             }
