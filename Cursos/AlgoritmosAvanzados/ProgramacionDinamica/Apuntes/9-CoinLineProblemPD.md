@@ -227,12 +227,12 @@ Para el caso concreto (p=2,q=2,r=1) el número de estados realmente visitados es
 
 #### 🎯 Resumen
 
-|Elemento|Explicación|
-|---|---|
-|**Problema**|Contar arreglos de monedas sin dos iguales adyacentes|
-|**Estado DP**|`dp[p][q][r][last]` = formas de terminar la fila desde ahí|
-|**Restricción**|`last_idx` recuerda qué tipo se puso antes, para prohibir repetirlo|
-|**Recurrencia**|Suma de las ramas válidas (tipo con monedas restantes y ≠ al último)|
-|**Caso base**|`p=q=r=0` → fila completa → 1 forma|
-|**Resultado (p=2,q=2,r=1)**|**12** arreglos válidos|
-|**Complejidad**|O(MAX_N³ · 4) tiempo y espacio|
+| Elemento                    | Explicación                                                          |
+| --------------------------- | -------------------------------------------------------------------- |
+| **Problema**                | Contar arreglos de monedas sin dos iguales adyacentes                |
+| **Estado DP**               | `dp[p][q][r][last]` = formas de terminar la fila desde ahí           |
+| **Restricción**             | `last_idx` recuerda qué tipo se puso antes, para prohibir repetirlo  |
+| **Recurrencia**             | Suma de las ramas válidas (tipo con monedas restantes y ≠ al último) |
+| **Caso base**               | `p=q=r=0` → fila completa → 1 forma                                  |
+| **Resultado (p=2,q=2,r=1)** | **12** arreglos válidos                                              |
+| **Complejidad**             | O(MAX_N³ · 4) tiempo y espacio                                       |
