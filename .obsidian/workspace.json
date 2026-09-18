@@ -13,28 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bienvenido.md",
+                "file": "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/9-CoinLineProblemPD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bienvenido"
-            }
-          }
-        ]
-      },
-      {
-        "id": "4cee2c8c69fd3d5e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f35be184b0972646",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
+              "title": "9-CoinLineProblemPD"
             }
           }
         ]
@@ -99,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "ba97cb1c558077eb",
@@ -206,6 +190,21 @@
   },
   "active": "f9614d8964879f30",
   "lastOpenFiles": [
-    "Bienvenido.md"
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/8-RobotWoodCutterPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/9-CoinLineProblemPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/7-BirdCagePD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/1-FibonacciDP.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/2-CoinRowPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/6-KnapsackPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/4-CompraDolaresPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/5-LongestIncreasingSubsequencePD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/3-ConjuntosPD.md",
+    "Sin título.md",
+    "Bienvenido.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica",
+    "Cursos/AlgoritmosAvanzados",
+    "Cursos",
+    "Diario",
+    "Plantillas"
   ]
 }
