@@ -1,234 +1,240 @@
-
 #### 📋 Entendimiento del Problema
 
-**Contexto:** Una tienda cuenta con **un billete/moneda de cada denominación**: uno de 2 soles, uno de 5 soles y uno de 10 soles (el `0` inicial en el arreglo es un valor "relleno", no una moneda real — ya lo veremos).
+**Objetivo:** Una tienda cuenta con un conjunto de billetes/monedas, **una sola unidad de cada denominación** (no un suministro infinito), y quiere saber **qué montos exactos** puede formar combinando algunos (o todos) de esos billetes.
 
-**Objetivo:** Determinar **todos los montos de cambio** que la tienda puede entregar combinando, sin repetir, las monedas que tiene disponibles.
+Para el ejemplo dado: `billetes = {0, 2, 5, 10}` (el `0` inicial es solo un "relleno" para que los índices empiecen alineados, no representa un billete real).
 
-🚫 **Restricción clave (a diferencia del clásico "coin change"):** cada moneda se puede usar **como máximo una vez**, porque solo hay una de cada denominación. Esto convierte el problema en un **subset-sum / mochila 0/1**, no en un "cambio con monedas ilimitadas".
+**Esto es el clásico problema de "Subset Sum" (suma de subconjuntos)**, no el clásico "cambio de monedas" con monedas ilimitadas — aquí **cada billete se puede usar como máximo una vez**.
 
 ```
-Monedas disponibles: 2, 5, 10 soles
-Pregunta: ¿qué sumas (0, 1, 2, 3, ... hasta 17) se pueden formar
-          eligiendo un SUBCONJUNTO de {2, 5, 10}?
+matriz[i][j] = 1  →  SÍ es posible formar la suma "j"
+                      usando solo billetes[0..i]  (cada uno 0 o 1 vez)
+matriz[i][j] = 0  →  NO es posible
 ```
 
 ---
 
-#### 🔍 Análisis del Código
-
-##### 🧩 El significado de `matriz[i][j]`
-
-```
-matriz[i][j] = 1  →  SÍ se puede formar la suma "j"
-                      usando solo las monedas billetes[0..i]
-matriz[i][j] = 0  →  NO se puede formar esa suma
-```
-
-- **Filas (`i`)**: qué monedas están "disponibles para usar" (desde `billetes[0]` hasta `billetes[i]`).
-- **Columnas (`j`)**: el monto objetivo, de `0` hasta `suma` (la suma total de todas las monedas = 17).
-
-##### 🔑 Por qué `billetes[0] = 0`
-
-cpp
-
-```cpp
-int billetes[]{0,2,5,10};
-```
-
-El `0` es un **billete ficticio (sentinel)**. Sirve para que la fila `i=0` represente "el caso sin ninguna moneda real todavía":
-
-cpp
-
-```cpp
-for (int i = 0; i < tamanio; i++) {
-    matriz[i][0] = 1;   // con 0 monedas, siempre se puede formar la suma 0
-}
-```
-
-Como el bucle principal empieza en `i = 1`, la fila 0 **nunca se recalcula** — se queda como "solo la suma 0 es alcanzable", que es el caso base correcto antes de considerar la primera moneda real (2 soles).
-
-##### ✅ La recurrencia (mochila 0/1)
+#### 🔍 Análisis de la Recurrencia
 
 cpp
 
 ```cpp
 if (billetes[i] <= j) {
-    matriz[i][j] = max(matriz[i-1][j], matriz[i-1][j-billetes[i]]);
+    matriz[i][j] = max(matriz[i - 1][j], matriz[i - 1][j - billetes[i]]);
 } else {
-    matriz[i][j] = matriz[i-1][j];
+    matriz[i][j] = matriz[i - 1][j];
 }
 ```
 
-Para cada monto `j`, hay dos decisiones posibles con la moneda `billetes[i]`:
+Para cada billete `i` y cada monto objetivo `j`, hay **dos decisiones posibles**, y se toma la mejor (`max`, que aquí funciona como un OR lógico entre 0 y 1):
 
 ```
-NO usar billetes[i]  →  matriz[i-1][j]              (igual que sin esta moneda)
-SÍ usar billetes[i]  →  matriz[i-1][j - billetes[i]] (el resto lo forman las anteriores)
+Opción A — NO usar el billete i:
+   ¿ya era posible formar "j" sin este billete?  → matriz[i-1][j]
 
-Como buscamos "¿es POSIBLE?" (0 o 1), usamos max() en vez de sumar:
-si CUALQUIERA de las dos opciones da 1 → matriz[i][j] = 1
+Opción B — SÍ usar el billete i:
+   ¿era posible formar "j - billetes[i]" con los billetes anteriores?
+   Si sí, sumando billetes[i] llego exactamente a "j" → matriz[i-1][j - billetes[i]]
+
+Si CUALQUIERA de las dos es posible (=1), entonces matriz[i][j] = 1
 ```
 
-Esto es exactamente la misma idea del "Weighted Interval Scheduling" que vimos antes (tomar vs. no tomar), pero aquí la "ganancia" no es un beneficio sino un booleano de factibilidad.
+##### 🚫 Caso especial: `billetes[i] > j`
+
+cpp
+
+```cpp
+} else {
+    matriz[i][j] = matriz[i - 1][j];
+}
+```
+
+Si el billete es más grande que el monto que quiero formar, **no puedo usarlo** (usarlo se pasaría del objetivo). Entonces heredo directamente el resultado de la fila anterior — es una versión de la "Opción A" sin siquiera evaluar la B.
+
+##### 📌 Caso base
+
+cpp
+
+```cpp
+for (int i = 0; i < tamanio; i++) {
+    matriz[i][0] = 1;
+}
+```
+
+Formar la suma **0** siempre es posible: simplemente no tomo ningún billete. Por eso toda la columna `j=0` es `1`.
+
+La fila `i=0` (billete = 0) queda en `0` para todo `j>0`, porque el "billete 0" no ayuda a formar ningún monto positivo.
 
 ---
 
-#### 📊 Ejecución Paso a Paso
+#### 📊 Ejecución del Algoritmo
 
-`billetes = {0, 2, 5, 10}`, `tamanio = 4`, `suma = 0+2+5+10 = 17` → matriz de `4 × 18`.
+`billetes = [0, 2, 5, 10]`, `suma total = 0+2+5+10 = 17`
 
-##### 📐 Inicialización
+##### 📐 Fila i = 0 (billete = 0)
 
 ```
-matriz[0][0] = 1
-matriz[1][0] = 1
-matriz[2][0] = 1
-matriz[3][0] = 1
-(resto de la fila 0 se queda en 0, nunca se toca)
+j:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+fila0:1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
-##### 🔄 Fila i=1 (billetes[1] = 2)
+##### 🔄 Fila i = 1 (billete = 2)
 
 cpp
 
 ```cpp
-j=1: 2<=1? NO  → matriz[1][1] = matriz[0][1] = 0
-j=2: 2<=2? SÍ  → max(matriz[0][2], matriz[0][0]) = max(0,1) = 1
-j=3..17: max(matriz[0][j], matriz[0][j-2]) = 0  (fila 0 solo tiene el 1 en col 0)
+j=2: matriz[1][2] = max(matriz[0][2], matriz[0][0]) = max(0, 1) = 1
+j=3: matriz[1][3] = max(matriz[0][3], matriz[0][1]) = max(0, 0) = 0
+... (el resto queda en 0, porque fila0 solo tiene el 1 en j=0)
 ```
 
-**Resultado fila 1:** solo `0` y `2` son alcanzables (obvio: con una sola moneda de 2, o nada).
-
 ```
-Fila 1:  1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-col:     0 1 2 3 4 5 6 7 8 9 ...
+j:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+fila1:1  0  1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 ```
 
-##### 🔄 Fila i=2 (billetes[2] = 5)
+✅ Con solo el billete de 2, únicamente se puede formar **0 y 2**.
+
+##### 🔄 Fila i = 2 (billete = 5)
 
 cpp
 
 ```cpp
-j=5: max(matriz[1][5], matriz[1][0]) = max(0,1) = 1   → "solo el 5"
-j=7: max(matriz[1][7], matriz[1][2]) = max(0,1) = 1   → "5 + 2"
-resto: se copia de la fila 1 o queda en 0
+j=5: matriz[2][5] = max(matriz[1][5], matriz[1][0]) = max(0, 1) = 1   → uso el billete de 5 solo
+j=7: matriz[2][7] = max(matriz[1][7], matriz[1][2]) = max(0, 1) = 1   → 5 + 2
+j=2: matriz[2][2] = matriz[1][2] = 1   (billete 5 > 2, no se puede usar, se hereda)
 ```
 
 ```
-Fila 2:  1 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0
-col:     0 1 2 3 4 5 6 7 8 9 ...
+j:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+fila2:1  0  1  0  0  1  0  1  0  0  0  0  0  0  0  0  0  0
 ```
 
-**Interpretación:** con {2, 5} disponibles, los montos posibles son `0, 2, 5, 7`.
+✅ Con billetes {2, 5}, se puede formar: **0, 2, 5, 7** → exactamente los subconjuntos `{}, {2}, {5}, {2+5}`.
 
-##### 🔄 Fila i=3 (billetes[3] = 10)
+##### 🔄 Fila i = 3 (billete = 10)
 
 cpp
 
 ```cpp
-j=10: max(matriz[2][10], matriz[2][0]) = max(0,1) = 1   → "solo el 10"
-j=12: max(matriz[2][12], matriz[2][2]) = max(0,1) = 1   → "10 + 2"
-j=15: max(matriz[2][15], matriz[2][5]) = max(0,1) = 1   → "10 + 5"
-j=17: max(matriz[2][17], matriz[2][7]) = max(0,1) = 1   → "10 + 5 + 2"
-resto: copiado de fila 2 (para j=1..9) o 0
+j=10: matriz[3][10] = max(matriz[2][10], matriz[2][0])  = max(0, 1) = 1   → solo el billete de 10
+j=12: matriz[3][12] = max(matriz[2][12], matriz[2][2])  = max(0, 1) = 1   → 10 + 2
+j=15: matriz[3][15] = max(matriz[2][15], matriz[2][5])  = max(0, 1) = 1   → 10 + 5
+j=17: matriz[3][17] = max(matriz[2][17], matriz[2][7])  = max(0, 1) = 1   → 10 + 5 + 2
+j=2,5,7: se heredan de la fila anterior (billete 10 > esos montos)
 ```
 
 ```
-Fila 3:  1 0 1 0 0 1 0 1 0 0 1 0  1  0  0  1  0  1
-col:     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+j:    0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+fila3:1  0  1  0  0  1  0  1  0  0  1  0  1  0  0  1  0  1
 ```
 
 ---
 
-#### 📋 Tabla DP Completa (tal como la imprime `imprimir`/el `cout` final)
+#### 📋 Tabla DP Completa
 
-|Fila (monedas usadas hasta)|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|
+|Billete↓ \ Monto→|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|i=0 (solo el "0")|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|
-|i=1 (+2)|1|0|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|
-|i=2 (+5)|1|0|1|0|0|1|0|1|0|0|0|0|0|0|0|0|0|0|
-|i=3 (+10)|1|0|1|0|0|1|0|1|0|0|1|0|1|0|0|1|0|1|
-
-**Los "1" de la última fila indican exactamente qué subconjunto de {2,5,10} los produce:**
-
-|Monto|Subconjunto que lo forma|
-|---|---|
-|0|{} (nada)|
-|2|{2}|
-|5|{5}|
-|7|{2, 5}|
-|10|{10}|
-|12|{2, 10}|
-|15|{5, 10}|
-|17|{2, 5, 10}|
+|**0**|1|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|
+|**2**|1|0|**1**|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|
+|**5**|1|0|1|0|0|**1**|0|**1**|0|0|0|0|0|0|0|0|0|0|
+|**10**|1|0|1|0|0|1|0|1|0|0|**1**|0|**1**|0|0|**1**|0|**1**|
 
 ---
 
-#### ⚠️ El detalle (bug/decisión de diseño) en la impresión final
+#### ✅ Resultado final
 
 cpp
 
 ```cpp
-for (int i = 0; i < suma; i++) {          // i va de 0 a 16, NUNCA llega a 17
-    if (matriz[tamanio-1][i] == 1) {
+cout << "Se puede dar cambio para: ";
+for (int i = 1; i <= suma; i++) {
+    if (matriz[tamanio - 1][i] == 1) {
         cout << setw(5) << i;
     }
 }
 ```
 
-Como la condición es `i < suma` (con `suma = 17`), el bucle recorre `0..16` pero **excluye el 17**, que sí es técnicamente alcanzable (`matriz[3][17] = 1`).
+Recorre la **última fila** (la que ya considera _todos_ los billetes disponibles) y muestra cada monto marcado con `1`:
 
 ```
-Salida real del programa:  0   2   5   7   10   12   15
-                                                         ↑
-                                            el 17 NO se imprime, aunque es válido
+Se puede dar cambio para:  2   5   7  10  12  15  17
 ```
 
-Esto puede ser intencional (no tendría sentido "dar de cambio" el monto total que se recibió — sería regresar todo el dinero), pero **conviene señalarlo como un posible off-by-one** si el objetivo real era listar _todos_ los montos posibles.
+Que corresponden exactamente a **todas las sumas posibles** de subconjuntos de `{2, 5, 10}`:
+
+```
+{}         = 0   (no se muestra, no es cambio útil)
+{2}        = 2
+{5}        = 5
+{2,5}      = 7
+{10}       = 10
+{2,10}     = 12
+{5,10}     = 15
+{2,5,10}   = 17
+```
 
 ---
 
-#### 💻 Por qué esto es "mochila 0/1" y no "cambio de monedas clásico"
+#### 🔑 Diferencia clave con "cambio de monedas" clásico
 
+|Aspecto|Este algoritmo (Subset Sum)|Cambio de monedas clásico|
+|---|---|---|
+|**Uso de cada denominación**|Como máximo **una vez**|Ilimitado|
+|**Transición**|`max(no usar, usar)` → 0/1|Suele sumar combinaciones (`+=`)|
+|**Pregunta que responde**|¿Es posible formar el monto?|¿Cuántas formas hay de formar el monto?|
+|**Analogía real**|La tienda tiene **un** billete de 2, **un** billete de 5, **un** billete de 10|Una caja registradora con muchas monedas de cada tipo|
+
+Esto tiene sentido con el enunciado: _"con un conjunto limitado de monedas con las que cuenta"_ — son piezas físicas específicas, no un suministro infinito.
+
+---
+
+#### 💻 Detalles de implementación a notar
+
+cpp
+
+```cpp
+int matriz[tamanio][suma + 1]{};
 ```
-Cambio de monedas clásico (monedas ILIMITADAS):
-  matriz[i][j] = matriz[i][j - billetes[i]]  ← usa la MISMA fila i
-                                                (se puede reusar billetes[i])
 
-Este código (monedas LIMITADAS a 1 unidad):
-  matriz[i][j] = matriz[i-1][j - billetes[i]] ← usa la fila ANTERIOR i-1
-                                                 (billetes[i] se usa como máximo 1 vez)
+Es un **VLA (variable-length array)** — su tamaño se define en tiempo de ejecución con `tamanio` y `suma`. No es C++ estándar (es una extensión de GCC), pero funciona en la práctica. El `{}` al final inicializa todo en `0`.
+
+cpp
+
+```cpp
+int max(int a, int b) { ... }
 ```
 
-Esa única diferencia de índice (`i` vs `i-1`) es la que distingue "monedas infinitas" de "una sola moneda de cada tipo", y coincide exactamente con el enunciado: la tienda tiene un conjunto **limitado**.
+Se define una función `max` propia, que **oculta** (shadow) a `std::max` — funciona igual pero es redundante dado el `using namespace std;`.
+
+La función `imprimir(int *matriz[], ...)` está declarada pero **nunca se usa** en `main()` — es código muerto que recibía un arreglo de punteros (`int*[]`), un tipo distinto al `int matriz[][]` real usado en `calcular`, así que ni siquiera sería compatible si se llamara.
 
 ---
 
 #### ⏱️ Complejidad
 
 ```
-Filas:     tamanio  (número de denominaciones, incluyendo el "0" ficticio)
-Columnas:  suma + 1 (suma total de todas las monedas)
+Filas (billetes):      O(tamanio)
+Columnas (montos):     O(suma)
 
 Tiempo:   O(tamanio × suma)
-Espacio:  O(tamanio × suma)   (matriz completa; podría reducirse a O(suma) 
-                                usando solo la fila anterior)
+Espacio:  O(tamanio × suma)   (podría optimizarse a O(suma) con una sola fila, 
+                                iterando j de mayor a menor)
 ```
 
-Para el ejemplo (`tamanio=4`, `suma=17`) son apenas 68 celdas — instantáneo.
+Para el ejemplo (`tamanio=4`, `suma=17`), son apenas ~68 celdas — instantáneo.
 
 ---
 
 #### 🎯 Resumen
 
-|Elemento|Explicación|
-|---|---|
-|**Problema**|¿Qué montos de cambio se pueden dar con un conjunto limitado de monedas?|
-|**Tipo de DP**|Subset-sum / Mochila 0/1 booleana|
-|**Estado**|`matriz[i][j]` = ¿es posible formar la suma `j` usando billetes[0..i]?|
-|**"Moneda" ficticia**|`billetes[0]=0` solo sirve como caso base de la fila 0|
-|**Recurrencia**|`max(no usar la moneda, usarla y restar su valor)`|
-|**Diferencia vs. cambio clásico**|Usa `matriz[i-1][...]` en vez de `matriz[i][...]` → cada moneda se usa a lo sumo una vez|
-|**Resultado para {2,5,10}**|Montos alcanzables: 0, 2, 5, 7, 10, 12, 15, (17 técnicamente también, pero no se imprime por el `i < suma`)|
-|**Complejidad**|O(tamanio × suma) tiempo y espacio|
+| Elemento                 | Explicación                                                                  |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| **Problema**             | Determinar qué montos se pueden formar con un billete de cada denominación   |
+| **Tipo de DP**           | Subset Sum (0/1 knapsack booleano)                                           |
+| **Estado**               | `matriz[i][j]` = ¿es posible formar el monto `j` usando los billetes `0..i`? |
+| **Recurrencia**          | `max(no usar el billete, usarlo si cabe)`                                    |
+| **Caso base**            | `matriz[i][0] = 1` (el monto 0 siempre se puede formar)                      |
+| **Resultado**            | Última fila: todas las posiciones `j` con valor `1`                          |
+| **Salida para {2,5,10}** | 2, 5, 7, 10, 12, 15, 17                                                      |
+| **Complejidad**          | O(tamanio × suma) tiempo y espacio                                           |
