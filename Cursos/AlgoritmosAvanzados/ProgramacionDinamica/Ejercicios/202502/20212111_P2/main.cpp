@@ -36,7 +36,7 @@ void calcular(int *billetes, int tamanio) {
         cout << endl;
     }
     cout<<"Se puede dar cambio para: ";
-    for (int i = 0; i < suma; i++) {
+    for (int i = 1; i <= suma; i++) {
         if (matriz[tamanio-1][i] == 1) {
             cout<<setw(5)<<i;
         }
