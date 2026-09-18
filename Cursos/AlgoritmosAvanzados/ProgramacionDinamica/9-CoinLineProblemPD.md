@@ -1,458 +1,238 @@
-### 📋 Entendimiento del Problema
+#### 📋 Entendimiento del Problema
 
-**Objetivo:** Contar cuántas formas válidas hay de **ordenar monedas en una línea** donde:
+**Objetivo:** Contar todas las formas válidas de colocar en una **fila** monedas de tres denominaciones:
 
-- Tienes: `p` monedas de 1 sol, `q` monedas de 2 soles, `r` monedas de 5 soles
-- **Restricción:** No pueden estar dos monedas del **mismo tipo adyacentes**
+- `p` monedas de **1 sol**
+- `q` monedas de **2 soles**
+- `r` monedas de **5 soles**
 
-**Ejemplo:** p=2, q=2, r=1
+🚫 **Restricción:** Dos monedas de la **misma denominación** no pueden quedar adyacentes en la fila.
+
+**Estados de la recursión — `dp[p][q][r][last_idx]`:**
 
 ```
-Tienes: 1, 1, 2, 2, 5
-Total: 5 monedas
+p, q, r      → cuántas monedas de cada tipo QUEDAN por colocar
+last_idx     → denominación de la ÚLTIMA moneda ya colocada
 
-¿En cuántas formas puedes ordenarlas SIN poner dos monedas iguales juntas?
+last_idx = 0 → aún no se colocó ninguna moneda (inicio)
+last_idx = 1 → la última fue de 1 sol
+last_idx = 2 → la última fue de 2 soles
+last_idx = 3 → la última fue de 5 soles
 ```
+
+Cada llamada responde a la pregunta: _"con estas cantidades restantes, y sabiendo qué acabo de poner, ¿de cuántas formas puedo terminar la fila?"_
 
 ---
 
-### 🔍 Análisis del Problema
+#### 🔍 Análisis de Restricciones
 
-#### ❌ Arreglos INVÁLIDOS
-
-```
-1 1 2 2 5    ✗ (dos 1s juntos, dos 2s juntos)
-2 2 1 5 1    ✗ (dos 2s juntos)
-5 1 1 2 2    ✗ (dos 1s juntos, dos 2s juntos)
-```
-
-#### ✅ Arreglos VÁLIDOS
+##### ✅ Transiciones Válidas
 
 ```
-1 2 1 2 5    ✓ (nunca dos iguales juntos)
-1 2 1 5 2    ✓
-1 5 1 2 2    ✗ (dos 2s juntos)
-2 1 2 1 5    ✓
-2 5 2 1 1    ✗ (dos 1s juntos)
+Desde last_idx = 1 (puse un sol):
+  ✗ → poner otro sol            (dos "1 sol" adyacentes)
+  ✓ → poner 2 soles
+  ✓ → poner 5 soles
+
+Desde last_idx = 2 (puse dos soles):
+  ✓ → poner 1 sol
+  ✗ → poner otro "2 soles"      (dos "2 soles" adyacentes)
+  ✓ → poner 5 soles
+
+Desde last_idx = 3 (puse cinco soles):
+  ✓ → poner 1 sol
+  ✓ → poner 2 soles
+  ✗ → poner otro "5 soles"      (dos "5 soles" adyacentes)
 ```
+
+##### 🚫 Por qué existe la restricción
+
+```
+... [1 sol] [1 sol] ...
+        ↑       ↑
+    ADYACENTES, misma denominación → INVÁLIDO
+
+Por eso, en el código:
+  if (p > 0 && last_idx != 1)   ← "queda esta moneda" Y "no es igual a la anterior"
+```
+
+Cada rama del `if` representa: _"¿puedo poner este tipo de moneda a continuación?"_ → sí, si quedan unidades **y** no se repite el tipo recién colocado.
 
 ---
 
-### 💻 Análisis del Código
+#### 📊 Ejecución del Algoritmo para p=2, q=2, r=1
 
-#### 📐 Estructura del Memoization
+Como es memoización _top-down_, la primera llamada (`p=2,q=2,r=1,last=0`) dispara sub-llamadas hacia estados más pequeños. Para verlo con claridad, lo reconstruimos **de abajo hacia arriba** (los casos base primero), que es exactamente lo que la tabla `dp` va guardando conforme la recursión regresa.
+
+##### 📐 Casos base (0 monedas restantes)
+
+```
+f(0,0,0,last) = 1   para cualquier last (0,1,2,3)
+```
+
+##### 🔄 Total = 1 moneda restante
 
 cpp
 
 ```cpp
-long long dp[MAX_N][MAX_N][MAX_N][4];
-// dp[p][q][r][last_idx]
-// p, q, r = monedas restantes
-// last_idx = tipo de moneda colocada al final (0/1/2/3)
+f(1,0,0,last):
+  last=1 → 0   (la única moneda que queda es "1 sol", pero la anterior ya fue "1 sol")
+  last≠1 → 1   (coloco el sol y termino)
 
-// Inicializar con -1 (sin calcular)
-for (...) dp[i][j][k][l] = -1;
+f(0,1,0,last):  análogo con "2 soles"   → last=2:0, resto:1
+f(0,0,1,last):  análogo con "5 soles"   → last=3:0, resto:1
 ```
 
-#### 🔑 Mapeo de Denominaciones
-
-```
-last_idx = 0  →  Sin moneda colocada aún (inicio)
-last_idx = 1  →  Última moneda fue de 1 sol
-last_idx = 2  →  Última moneda fue de 2 soles
-last_idx = 3  →  Última moneda fue de 5 soles
-```
-
-#### 📊 Función Recursiva
+##### 🔄 Total = 2 monedas restantes
 
 cpp
 
 ```cpp
-long long count_ways(dp, p, q, r, last_idx)
-// Retorna: número de formas de arreglar las monedas restantes
-//          sin repetir last_idx consecutivamente
+f(1,1,0,last):
+  ways = [p>0 && last!=1] f(0,1,0,1)  +  [q>0 && last!=2] f(1,0,0,2)
+       =            (1)                +            (1)
+
+  last=0: 1+1 = 2
+  last=1: 0+1 = 1   (se bloquea la rama de "1 sol")
+  last=2: 1+0 = 1   (se bloquea la rama de "2 soles")
+  last=3: 1+1 = 2
 ```
 
----
+```
+f(2,0,0,last) = 0  para TODO last
+```
 
-### 📊 Ejecución Paso a Paso
+**Interpretación:** con solo monedas de 1 sol (2 de ellas) es _imposible_ evitar que queden adyacentes → 0 formas. Esto es clave: el algoritmo "descubre" solo, sin reglas especiales, que ciertas combinaciones son irrealizables.
 
-#### Llamada Inicial
+##### 🔄 Total = 3 monedas restantes (ejemplo clave: `f(1,1,1,·)`)
 
 cpp
 
 ```cpp
-count_ways(dp, p=2, q=2, r=1, last_idx=0)
-// 2 monedas de 1 sol
-// 2 monedas de 2 soles
-// 1 moneda de 5 soles
-// Última: NINGUNA (0)
+f(1,1,1,last):
+  ways = [last!=1] f(0,1,1,1)  +  [last!=2] f(1,0,1,2)  +  [last!=3] f(1,1,0,3)
+       =        (2)             +        (2)             +        (2)
+
+  last=0: 2+2+2 = 6   (ninguna rama bloqueada)
+  last=1: 0+2+2 = 4   (se bloquea "1 sol")
+  last=2: 2+0+2 = 4   (se bloquea "2 soles")
+  last=3: 2+2+0 = 4   (se bloquea "5 soles")
 ```
 
-#### 🌳 Árbol de Recursión (Parcial)
-
-```
-count_ways(2,2,1,0)
-├─ count_ways(1,2,1,1)  ← Colocamos moneda de 1 sol
-│  ├─ count_ways(1,1,1,2)  ← Colocamos moneda de 2 soles (no de 1)
-│  │  ├─ count_ways(0,1,1,1)  ← Colocamos moneda de 1 sol (no de 2)
-│  │  ├─ count_ways(1,0,1,3)  ← Colocamos moneda de 5 soles
-│  │  └─ ... (no de 2)
-│  └─ count_ways(1,2,0,3)  ← Colocamos moneda de 5 soles
-│  └─ ... (no de 1)
-│
-├─ count_ways(2,1,1,2)  ← Colocamos moneda de 2 soles
-│  ├─ count_ways(1,1,1,1)  ← Colocamos moneda de 1 sol (no de 2)
-│  └─ ... (no de 2)
-│
-└─ count_ways(2,2,0,3)  ← Colocamos moneda de 5 soles
-   └─ ... (no de 5)
-```
-
----
-
-### 📋 Traza Completa (Árbol Podado)
-
-#### Nivel 0: count_ways(2, 2, 1, 0)
-
-```
-Estado: p=2, q=2, r=1, last=0 (inicio)
-Opciones: Podemos poner 1, 2 o 5 (ninguna fue última)
-
-  Opción A: Poner 1 → count_ways(1, 2, 1, 1)
-  Opción B: Poner 2 → count_ways(2, 1, 1, 2)
-  Opción C: Poner 5 → count_ways(2, 2, 0, 3)
-  
-result = resultado_A + resultado_B + resultado_C
-```
-
----
-
-#### Nivel 1a: count_ways(1, 2, 1, 1) [Pusimos 1 primero]
-
-```
-Estado: p=1, q=2, r=1, last=1 (última fue 1)
-Opciones: Podemos poner 2 o 5 (NO 1)
-
-  Opción 1: Poner 2 → count_ways(1, 1, 1, 2)
-  Opción 2: Poner 5 → count_ways(1, 2, 0, 3)
-  
-result = resultado_1 + resultado_2
-```
-
----
-
-#### Nivel 2a: count_ways(1, 1, 1, 2) [Pusimos: 1, 2]
-
-```
-Estado: p=1, q=1, r=1, last=2 (última fue 2)
-Opciones: Podemos poner 1 o 5 (NO 2)
-
-  Opción 1: Poner 1 → count_ways(0, 1, 1, 1)
-  Opción 2: Poner 5 → count_ways(1, 1, 0, 3)
-  
-result = resultado_1 + resultado_2
-```
-
----
-
-#### Nivel 3a: count_ways(0, 1, 1, 1) [Pusimos: 1, 2, 1]
-
-```
-Estado: p=0, q=1, r=1, last=1 (última fue 1)
-Opciones: Podemos poner 2 o 5 (NO 1)
-
-  Opción 1: Poner 2 → count_ways(0, 0, 1, 2)
-  Opción 2: Poner 5 → count_ways(0, 1, 0, 3)
-  
-result = resultado_1 + resultado_2
-```
-
----
-
-#### Nivel 4a: count_ways(0, 0, 1, 2) [Pusimos: 1, 2, 1, 2]
-
-```
-Estado: p=0, q=0, r=1, last=2 (última fue 2)
-Opciones: Podemos poner 5 (NO 2, p=0, q=0)
-
-  Opción 1: Poner 5 → count_ways(0, 0, 0, 3)
-  
-result = resultado_1
-```
-
----
-
-#### Nivel 5a: count_ways(0, 0, 0, 3) [Pusimos: 1, 2, 1, 2, 5]
-
-```
-Estado: p=0, q=0, r=0, last=3 (última fue 5)
-
-BASE CASE ALCANZADO: Todas las monedas se usaron
-Retornamos: 1
-
-✅ Secuencia válida encontrada: 1 2 1 2 5
-```
-
----
-
-### 🎯 Memoización en Acción
+##### 🔄 Total = 4 monedas restantes
 
 cpp
 
 ```cpp
-if (dp[p][q][r][last_idx] != -1) {
-    return dp[p][q][r][last_idx];  // Ya fue calculado
-}
+f(2,1,1,last):
+  ways = [last!=1] f(1,1,1,1)  +  [last!=2] f(2,0,1,2)  +  [last!=3] f(2,1,0,3)
+       =        (4)             +        (1)             +        (1)
+  last=0: 4+1+1 = 6
+  last=1: 0+1+1 = 2
+  last=2: 4+0+1 = 5
+  last=3: 4+1+0 = 5
 
-// ... cálculo ...
-
-dp[p][q][r][last_idx] = ways;  // Guardar para no recalcular
-return ways;
+f(1,2,1,last):  (simétrico, intercambiando p↔q)
+  last=0: 6   last=1: 5   last=2: 2   last=3: 5
 ```
 
-#### Ejemplo de Reutilización
+##### 🎯 Total = 5 monedas restantes → la respuesta final
 
-```
-Primera llamada: count_ways(1, 1, 1, 1)
-  → Calcula resultado (supongamos 2 formas)
-  → Guarda en dp[1][1][1][1] = 2
+cpp
 
-Llamada posterior: count_ways(1, 1, 1, 1)
-  → Checa: dp[1][1][1][1] != -1 ✓
-  → Retorna 2 directamente (sin recalcular)
-```
-
----
-
-### 📊 Tabla de Memoización Parcial
-
-```
-Estados calculados para p=2, q=2, r=1:
-
-dp[2][2][1][0] = 36  ← Respuesta final
-dp[1][2][1][1] = 13
-dp[2][1][1][2] = 13
-dp[2][2][0][3] = 10
-dp[1][1][1][2] = 4
-dp[0][2][1][1] = 3
-...
-
-Total de estados únicos consultados: << (2×2×1)! permutaciones
+```cpp
+f(2,2,1,0) = [last≠1] f(1,2,1,1)  +  [last≠2] f(2,1,1,2)  +  [last≠3] f(2,2,0,3)
+           =        5              +        5              +        2
+           = 12
 ```
 
 ---
 
-### 🧮 Análisis sin Memoización
+#### 📋 Tabla resumen de estados usados
 
-#### Complejidad sin Memo
+|Estado (p,q,r)|last=0|last=1|last=2|last=3|
+|---|---|---|---|---|
+|(0,0,0)|1|1|1|1|
+|(1,0,0)|1|0|1|1|
+|(0,1,0)|1|1|0|1|
+|(0,0,1)|1|1|1|0|
+|(1,1,0)|2|1|1|2|
+|(2,0,0)|0|0|0|0|
+|(1,0,1)|2|1|2|1|
+|(0,1,1)|2|2|1|1|
+|(1,1,1)|6|4|4|4|
+|(2,1,1)|6|2|5|5|
+|(1,2,1)|6|5|2|5|
+|**(2,2,1)**|**12**|—|—|—|
+
+---
+
+#### ✅ Verificación independiente
+
+Renombrando 1 sol = A, 2 soles = B, 5 soles = C, buscamos permutaciones de `{A,A,B,B,C}` sin AA ni BB adyacentes.
 
 ```
-Sin memoización, sería exponencial:
-- En cada paso elegimos entre 3 denominaciones
-- Profundidad del árbol: p + q + r = 2 + 2 + 1 = 5
-- Peor caso: O(3^5) = 243 llamadas
+Total de permutaciones del multiconjunto:  5! / (2!·2!·1!) = 30
 
-Con p=2, q=2, r=1 (pequeño) → Manageable
-Con p=50, q=50, r=50 → 243 billones de llamadas ✗
-```
+Por inclusión-exclusión:
+  Arreglos con "AA" pegado (bloque): 4!/2! = 12
+  Arreglos con "BB" pegado (bloque): 4!/2! = 12
+  Arreglos con "AA" y "BB" pegados:  3!     = 6
 
-#### Complejidad con Memo
-
-```
-Con memoización:
-- Número máximo de estados únicos: (p+1) × (q+1) × (r+1) × 4
-- Para p=2, q=2, r=1: 3 × 3 × 2 × 4 = 72 estados máximo
-- Cada estado se calcula UNA SOLA VEZ
-
-O(N³) donde N = max(p, q, r)
-Para p=50, q=50, r=50: 50³ × 4 = 500,000 estados (instantáneo)
+  Inválidos = 12 + 12 - 6 = 18
+  Válidos   = 30 - 18     = 12   ✓ coincide con el resultado del DP
 ```
 
 ---
 
-### ✅ Todas las Secuencias Válidas para p=2, q=2, r=1
-
-Manualmente encontradas:
-
-```
-Comenzando con 1:
-  1 2 1 2 5 ✓
-  1 2 1 5 2 ✓
-  1 2 5 2 1 ✓
-  1 5 2 1 2 ✓
-
-Comenzando con 2:
-  2 1 2 1 5 ✓
-  2 1 2 5 1 ✓
-  2 1 5 1 2 ✓
-  2 1 5 2 1 ✓
-  2 5 1 2 1 ✓
-
-Comenzando con 5:
-  5 1 2 1 2 ✓
-  5 2 1 2 1 ✓
-  ... (más combinaciones)
-  
-TOTAL: Probablemente alrededor de 24-36 secuencias válidas
-```
-
----
-
-### 🔄 Verificación de Lógica
-
-#### Restricción Correctamente Implementada
+#### 💻 Por qué el código funciona así
 
 cpp
 
 ```cpp
 if (p > 0 && last_idx != 1) {
     ways += count_ways(dp, p - 1, q, r, 1);
-    //                               ↑
-    //                    Pasamos last_idx = 1
 }
 ```
 
-**Explicación:**
-
-- `p > 0`: Aún tenemos monedas de 1 sol
-- `last_idx != 1`: La última moneda NO fue de 1 sol
-- Si ambas condiciones son verdaderas, podemos colocar 1 sol
-- Recursionamos con `last_idx = 1` (ahora esta es la última)
-
----
-
-### 📤 Salida del Programa
-
-```
-Para p=2, q=2, r=1
-El numero de formas validas es: 24
-```
-
-(El número exacto depende del cálculo completo)
-
----
-
-### 💡 Comparación: Métodos de Solución
-
-#### Método 1: Fuerza Bruta (Sin Memo)
+- `p > 0` → todavía hay monedas de ese tipo disponibles.
+- `last_idx != 1` → la restricción de no-adyacencia.
+- Se llama recursivamente con `p-1` (una moneda menos) y `last_idx = 1` (ahora la última colocada es tipo 1).
+- Se **suma** porque cada tipo válido representa una rama de decisión distinta y mutuamente excluyente.
 
 cpp
 
 ```cpp
-count_all_permutations(coins) {
-    if (coins empty) return 1 si válido, 0 si no
-    
-    for each permutation of coins:
-        if no adjacent duplicates:
-            count++
-    
-    return count
+if (dp[p][q][r][last_idx] != -1) {
+    return dp[p][q][r][last_idx];
 }
-
-Complejidad: O((p+q+r)!) = Factorial (¡¡Terrible!!)
-Para p=2, q=2, r=1: 5! = 120 permutaciones a verificar
 ```
 
-#### Método 2: DP Top-Down (Este)
-
-cpp
-
-```cpp
-count_ways(p, q, r, last_idx) {
-    if (p == 0 && q == 0 && r == 0) return 1
-    
-    if cached return cache[p][q][r][last_idx]
-    
-    result = sum of valid next choices
-    
-    cache[p][q][r][last_idx] = result
-    return result
-}
-
-Complejidad: O((p+1)(q+1)(r+1) × 4) 
-Para p=2, q=2, r=1: 3 × 3 × 2 × 4 = 72 operaciones
-```
-
-#### Método 3: DP Bottom-Up
-
-cpp
-
-```cpp
-dp[p][q][r][last] = max ways usando p,q,r con last al final
-
-Base: dp[0][0][0][any] = 1
-
-Llenar tabla sistemáticamente...
-
-Complejidad: O((p+1)(q+1)(r+1) × 4) con mejor cache locality
-```
+Antes de recalcular, se pregunta si ese estado exacto ya se resolvió antes (por ejemplo, `f(1,1,0,1)` puede ser alcanzado desde varios caminos distintos: primero poniendo A y luego B, o llegando por otra combinación). Guardar el resultado evita repetir ese trabajo.
 
 ---
 
-### 🔧 Traza Detallada del Ejemplo
-
-#### Llamadas Iniciales
+#### ⏱️ Complejidad
 
 ```
-count_ways(2, 2, 1, 0)
-  last_idx = 0 (ninguno previo)
-  
-Intentar poner moneda de 1:
-  p=2 > 0 ✓ y last_idx=0 != 1 ✓
-  → Llamar count_ways(1, 2, 1, 1)
-  
-Intentar poner moneda de 2:
-  q=2 > 0 ✓ y last_idx=0 != 2 ✓
-  → Llamar count_ways(2, 1, 1, 2)
-  
-Intentar poner moneda de 5:
-  r=1 > 0 ✓ y last_idx=0 != 3 ✓
-  → Llamar count_ways(2, 2, 0, 3)
+Estados posibles: (MAX_N) × (MAX_N) × (MAX_N) × 4
+Trabajo por estado: O(1) (solo 3 ramas posibles)
 
-Total: sum_of_three_calls
+Complejidad total: O(MAX_N³ · 4) en tiempo y espacio
 ```
+
+Para el caso concreto (p=2,q=2,r=1) el número de estados realmente visitados es muy pequeño (menos de 20), por eso el resultado se calcula instantáneamente.
 
 ---
 
-### 📐 Estructura del DP
+#### 🎯 Resumen
 
-```
-       p × q × r × last_idx
-       
-       3 × 3 × 2 × 4 = 72 celdas máximo
-
-Estado 0:  (2,2,1,0), (2,2,1,1), (2,2,1,2), (2,2,1,3)
-Estado 1:  (1,2,1,0), (1,2,1,1), (1,2,1,2), (1,2,1,3)
-...
-Estado último: (0,0,0,0), (0,0,0,1), ..., (0,0,0,3)
-
-La mayoría de estados = -1 hasta que se calculan
-Valores calculados se guardan para reutilización
-```
-
----
-
-### 🎯 Resumen
-
-|Concepto|Explicación|
+|Elemento|Explicación|
 |---|---|
-|**Problema**|Contar arreglos de monedas sin repetición adyacente|
-|**Estado DP**|(p, q, r, last_idx) = monedas restantes + último tipo|
-|**Base**|p=0, q=0, r=0 → return 1 (secuencia completa)|
-|**Recurrencia**|Intentar poner cada denominación diferente a última|
-|**Memo**|Guardar resultado en dp[p][q][r][last_idx]|
-|**Complejidad**|O(pqr × 4) tiempo y espacio|
-|**Eficiencia**|Transforma exponencial O(3^n) a polinomial|
-
----
-
-### ✨ Ventajas de Este Enfoque
-
-```
-✓ Fácil de entender (lógica directa)
-✓ Top-down = construir desde problema completo
-✓ Memoización automática evita recálculos
-✓ Puede manejar problemas moderados (p,q,r ≤ 50)
-✓ Reutiliza subproblemas innecesarios
-```
+|**Problema**|Contar arreglos de monedas sin dos iguales adyacentes|
+|**Estado DP**|`dp[p][q][r][last]` = formas de terminar la fila desde ahí|
+|**Restricción**|`last_idx` recuerda qué tipo se puso antes, para prohibir repetirlo|
+|**Recurrencia**|Suma de las ramas válidas (tipo con monedas restantes y ≠ al último)|
+|**Caso base**|`p=q=r=0` → fila completa → 1 forma|
+|**Resultado (p=2,q=2,r=1)**|**12** arreglos válidos|
+|**Complejidad**|O(MAX_N³ · 4) tiempo y espacio|
