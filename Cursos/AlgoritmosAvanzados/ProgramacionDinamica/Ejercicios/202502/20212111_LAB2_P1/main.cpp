@@ -36,10 +36,9 @@ int main() {
     int n;
     cout << "Ingrese el valor de n (1<=n<=45):" << endl;
     cin >> n;
-    if (n < 1 || n > 45) {
+    if (n < 1 or n > 45) {
         cout << "No cumple la condicion" << endl;
     } else {
-        //calcularVersionMichi(n);
         calcularVersionAgaporni(n);
     }
     return 0;
