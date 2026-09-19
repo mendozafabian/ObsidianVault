@@ -219,14 +219,14 @@ Misma complejidad que el problema de Subset Sum anterior, pero aquí el resultad
 
 #### 🎯 Resumen
 
-|Elemento|Explicación|
-|---|---|
-|**Problema**|Mínimo número de billetes para formar un monto, con suministro infinito|
-|**Tipo de DP**|Knapsack no acotado (Unbounded Knapsack) / Coin Change mínimo|
-|**Estado**|`matriz[i][j]` = mínimos billetes (tipos 0..i) para formar el monto `j`|
-|**Recurrencia clave**|`min(no usar más este billete, usar uno más del mismo tipo)`|
-|**Diferencia vs. Subset Sum**|Usa `matriz[i][...]` (misma fila) en vez de `matriz[i-1][...]` → permite reutilizar el billete|
-|**Sentinela**|`99` representa "imposible / infinito"|
-|**Casos imposibles**|Solo `1` y `3` (Teorema de Frobenius para 2 y 5)|
-|**Ejemplo (meta=12)**|Mínimo: **2 billetes** (10 + 2)|
-|**Complejidad**|O(tamanio × meta) tiempo y espacio|
+| Elemento                      | Explicación                                                                                    |
+| ----------------------------- | ---------------------------------------------------------------------------------------------- |
+| **Problema**                  | Mínimo número de billetes para formar un monto, con suministro infinito                        |
+| **Tipo de DP**                | Knapsack no acotado (Unbounded Knapsack) / Coin Change mínimo                                  |
+| **Estado**                    | `matriz[i][j]` = mínimos billetes (tipos 0..i) para formar el monto `j`                        |
+| **Recurrencia clave**         | `min(no usar más este billete, usar uno más del mismo tipo)`                                   |
+| **Diferencia vs. Subset Sum** | Usa `matriz[i][...]` (misma fila) en vez de `matriz[i-1][...]` → permite reutilizar el billete |
+| **Sentinela**                 | `99` representa "imposible / infinito"                                                         |
+| **Casos imposibles**          | Solo `1` y `3` (Teorema de Frobenius para 2 y 5)                                               |
+| **Ejemplo (meta=12)**         | Mínimo: **2 billetes** (10 + 2)                                                                |
+| **Complejidad**               | O(tamanio × meta) tiempo y espacio                                                             |
