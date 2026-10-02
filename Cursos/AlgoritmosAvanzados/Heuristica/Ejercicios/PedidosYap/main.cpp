@@ -2,11 +2,10 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
-const int N = 8;
+#define MAX 8
 
 struct Nodo {
-    int ciudad;
+    int punto;
     int distancia;
 };
 
@@ -18,7 +17,7 @@ bool gt(Nodo a, Nodo b) {
     return a.distancia > b.distancia;
 }
 
-void calcularRuta(int inicio, int fin, int mapa[][N]) {
+void crearRutaMinima(int inicio, int fin, int mapa[][MAX]) {
     cout << "Ciudad inicial: " << inicio << endl;
     cout << "Ciudad final: " << fin << endl;
     int distanciaRecorrida = 0;
@@ -26,17 +25,17 @@ void calcularRuta(int inicio, int fin, int mapa[][N]) {
     cout << "Recorrido: " << ciudad;
     while (true) {
         vector<Nodo> vecinos;
-        for (int i = 0; i < N; i++) {
-            if (mapa[ciudad][i] > 0) {
+        for (int i = 0; i < MAX; i++) {
+            if (mapa[ciudad][i]>0) {
                 Nodo aux;
-                aux.ciudad = i;
+                aux.punto = i;
                 aux.distancia = mapa[ciudad][i];
                 vecinos.push_back(aux);
             }
         }
         if (not vecinos.empty()) {
             sort(vecinos.begin(), vecinos.end(), lt);
-            ciudad = vecinos[0].ciudad;
+            ciudad = vecinos[0].punto;
             cout << " -> " << ciudad;
             distanciaRecorrida += vecinos[0].distancia;
         }
@@ -49,11 +48,10 @@ void calcularRuta(int inicio, int fin, int mapa[][N]) {
             break;
         }
     }
-    cout << endl << "Distancia recorrida: " << distanciaRecorrida << endl;
 }
 
 int main() {
-    int mapa[][N] = {
+    int mapa[][MAX]{
         {0, 4, 5, 6, 0, 0, 0, 0},
         {0, 0, 0, 0, 2, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 3},
@@ -63,6 +61,6 @@ int main() {
         {0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0}
     };
-    calcularRuta(0, 6, mapa);
+    crearRutaMinima(0, 7, mapa);
     return 0;
 }

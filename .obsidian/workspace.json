@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
+                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MinCoinChange"
+              "title": "PedidosYap"
             }
           }
         ]
@@ -190,18 +190,21 @@
   },
   "active": "0c82364348a0cd17",
   "lastOpenFiles": [
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing/Temporary/LastTest.log",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing/Temporary",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/clion-Debug-log.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/InstallScripts.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeCache.txt.tmp22d1b",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/build.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/rules.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/compile_commands.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/TargetDirectories.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/cmake_install.cmake",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Neptunia.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/MinCoinChange/cmake-build-debug/Testing/Temporary/LastTest.log.tmp585c5",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp6dbc7",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpd0d6b",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp5f944",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpd1a85",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpf9f72",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp16e4a",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp5cdea",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Camiones.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PunteroAFuncion.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MochilaVoraz.md",
