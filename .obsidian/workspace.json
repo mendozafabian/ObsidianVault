@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diario/19-09-2026.md",
+                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "19-09-2026"
+              "title": "MinCoinChange"
             }
           }
         ]
@@ -46,7 +46,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Explorador de archivos"
+              "title": "Files"
             }
           },
           {
@@ -179,31 +179,39 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Abrir selector rápido": false,
-      "graph:Abrir vista gráfica": false,
-      "canvas:Crear nuevo lienzo": false,
-      "daily-notes:Abrir la nota de hoy": false,
-      "templates:Insertar plantilla": false,
-      "command-palette:Abrir paleta de comandos": false,
-      "bases:Crear nueva base": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
     }
   },
-  "active": "cd3aeca020423f46",
+  "active": "0c82364348a0cd17",
   "lastOpenFiles": [
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/MinCoinChange/cmake-build-debug/Testing/Temporary/LastTest.log.tmp585c5",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/main.cpp.obj.d",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp6dbc7",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.rsp",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpd0d6b",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp5f944",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpd1a85",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmpf9f72",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp16e4a",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/Rutas/cmake-build-debug/CMakeFiles/Rutas.dir/CXX.dd.tmp5cdea",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Camiones.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PunteroAFuncion.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MochilaVoraz.md",
+    "Diario/Entregable 2 (Inciso A) - UNIFA Modelado de la empresa y analítica.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/UntitledUntitled.md",
+    "Diario/28-09-2026.md",
     "Diario/19-09-2026.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/CXX.dd.tmpede6b",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/CXX.dd.tmp2a634",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/Testing/Temporary/LastTest.log.tmp6954c",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log.tmpfadc4",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/20212111_P2.dir/CXX.dd.tmp7d2ca",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/9-CoinLineProblemPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
