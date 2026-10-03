@@ -8,13 +8,8 @@ struct Paquete {
     int peso;
 };
 
-
-bool lt(Paquete a, Paquete b) {
-    return (double)a.ganancia / a.peso < (double)b.ganancia / b.peso;
-}
-
 bool gt(Paquete a, Paquete b) {
-    return (double)a.ganancia / a.peso > (double)b.ganancia / b.peso;
+    return (double) a.ganancia / a.peso > (double) b.ganancia / b.peso;
 }
 
 void cargarContenedor(vector<Paquete> paquetes, int peso) {

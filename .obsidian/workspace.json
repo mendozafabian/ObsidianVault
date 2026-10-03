@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "42e5893037ca9f82",
+        "id": "8a028df5e38653a6",
         "type": "tabs",
         "children": [
           {
-            "id": "0c82364348a0cd17",
+            "id": "3aa433d73688e2a6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
+                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PedidosYap"
+              "title": "Rutas"
             }
           }
         ]
@@ -188,21 +188,22 @@
       "bases:Create new base": false
     }
   },
-  "active": "0c82364348a0cd17",
+  "active": "3aa433d73688e2a6",
   "lastOpenFiles": [
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing/Temporary/LastTest.log",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing/Temporary",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/Testing",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/clion-Debug-log.txt",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/InstallScripts.json",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeCache.txt.tmp22d1b",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/build.ninja",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/rules.ninja",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/compile_commands.json",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/CMakeFiles/TargetDirectories.txt",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/ProyectoVoraz/cmake-build-debug/cmake_install.cmake",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Neptunia.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/InstallScripts.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeCache.txt.tmpef011",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/build.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/rules.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/compile_commands.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/TargetDirectories.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/cmake_install.cmake",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/ProyectoVoraz.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Neptunia.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
     "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Camiones.md",
@@ -224,7 +225,6 @@
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
-    "Sin título.md",
-    "Bienvenido.md"
+    "Sin título.md"
   ]
 }
