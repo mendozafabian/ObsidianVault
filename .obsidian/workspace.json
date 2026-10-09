@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "055c2c23acc5b363",
+        "id": "8a028df5e38653a6",
         "type": "tabs",
         "children": [
           {
-            "id": "4b5047009008c912",
+            "id": "3aa433d73688e2a6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Rutas"
             }
           }
         ]
@@ -184,8 +188,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "cd3aeca020423f46",
+  "active": "3aa433d73688e2a6",
   "lastOpenFiles": [
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/InstallScripts.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeCache.txt.tmpef011",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/build.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/rules.ninja",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/compile_commands.json",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/TargetDirectories.txt",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/cmake_install.cmake",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/ProyectoVoraz.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Neptunia.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Camiones.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PunteroAFuncion.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MochilaVoraz.md",
+    "Diario/Entregable 2 (Inciso A) - UNIFA Modelado de la empresa y analítica.md",
+    "Cursos/AlgoritmosAvanzados/Heuristica/UntitledUntitled.md",
+    "Diario/28-09-2026.md",
+    "Diario/19-09-2026.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/9-CoinLineProblemPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/2-CoinRowPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/8-RobotWoodCutterPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/7-BirdCagePD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
+    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
+    "Sin título.md",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap3 - Heuristicas",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap1 - BackTracking",
@@ -193,7 +233,6 @@
     "Cursos/SistemasDeInformacionParaLosNegocios/Semana07.md",
     "Cursos/SistemasDeInformacionParaLosNegocios",
     "Diario/23-09-2026.md",
-    "Diario/19-09-2026.md",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/main.cpp.obj.d",
     "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/CXX.dd.tmpede6b",
@@ -212,7 +251,7 @@
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
     "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
-    "Sin título.md",
     "Bienvenido.md"
+  ]
   ]
 }
