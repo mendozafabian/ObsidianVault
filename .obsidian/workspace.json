@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "b8e91bf94a55d797",
+    "id": "f811820fbe084802",
     "type": "split",
     "children": [
       {
-        "id": "8a028df5e38653a6",
+        "id": "6253fa42a8a3dde3",
         "type": "tabs",
         "children": [
           {
-            "id": "3aa433d73688e2a6",
+            "id": "804ea6a2c8f32951",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Rutas"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e65dc23da5392bc1",
+    "id": "d9a211abd6ed629f",
     "type": "split",
     "children": [
       {
-        "id": "953c950495dbbdfd",
+        "id": "a61675a5b5305b0d",
         "type": "tabs",
         "children": [
           {
-            "id": "cd3aeca020423f46",
+            "id": "5d53d32e5e9ef4dd",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,7 +46,7 @@
             }
           },
           {
-            "id": "cdffcae2b43ce969",
+            "id": "e83f1acf1c4dd69f",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -63,11 +59,11 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Buscar"
+              "title": "Search"
             }
           },
           {
-            "id": "e95e4da571579948",
+            "id": "7e4e9877ffa458e8",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -76,30 +72,29 @@
                 "searchQuery": ""
               },
               "icon": "lucide-bookmark",
-              "title": "Marcadores"
+              "title": "Bookmarks"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 263.5
+    "width": 300
   },
   "right": {
-    "id": "ba97cb1c558077eb",
+    "id": "5096283fc291a638",
     "type": "split",
     "children": [
       {
-        "id": "a1879031eb32c8ee",
+        "id": "70258471ee5c19c5",
         "type": "tabs",
         "children": [
           {
-            "id": "1d36c87e93a38fc0",
+            "id": "0030941b133877da",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Bienvenido.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,25 +104,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes"
+              "title": "Backlinks"
             }
           },
           {
-            "id": "9991437c2e0145f0",
+            "id": "d271f5dd72a57183",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Bienvenido.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Enlaces salientes"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "71fb92f6189505e3",
+            "id": "8d74656592395c87",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -138,11 +132,11 @@
                 "searchQuery": ""
               },
               "icon": "lucide-tags",
-              "title": "Etiquetas"
+              "title": "Tags"
             }
           },
           {
-            "id": "41693b6a68bb873b",
+            "id": "2ec0824adfcd40a5",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -152,22 +146,21 @@
                 "searchQuery": ""
               },
               "icon": "lucide-archive",
-              "title": "Todas las propiedades"
+              "title": "All properties"
             }
           },
           {
-            "id": "6fe8d1564af4f774",
+            "id": "977153a76f91a0fd",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Bienvenido.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Esquema"
+              "title": "Outline"
             }
           }
         ]
@@ -188,70 +181,6 @@
       "bases:Create new base": false
     }
   },
-  "active": "3aa433d73688e2a6",
-  "lastOpenFiles": [
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary/LastTest.log",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing/Temporary",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/Testing",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/InstallScripts.json",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeCache.txt.tmpef011",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/build.ninja",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/rules.ninja",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/compile_commands.json",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/CMakeFiles/TargetDirectories.txt",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Ejercicios/202401/20212111_LAB2_P2/cmake-build-debug/cmake_install.cmake",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/ProyectoVoraz.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PedidosYap.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Neptunia.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MinCoinChange.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Rutas.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/Camiones.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/PunteroAFuncion.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/Apuntes/MochilaVoraz.md",
-    "Diario/Entregable 2 (Inciso A) - UNIFA Modelado de la empresa y analítica.md",
-    "Cursos/AlgoritmosAvanzados/Heuristica/UntitledUntitled.md",
-    "Diario/28-09-2026.md",
-    "Diario/19-09-2026.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/9-CoinLineProblemPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/2-CoinRowPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/8-RobotWoodCutterPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/7-BirdCagePD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
-    "Sin título.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap3 - Heuristicas",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap1 - BackTracking",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial",
-    "Cursos/SistemasDeInformacionParaLosNegocios/Semana07.md",
-    "Cursos/SistemasDeInformacionParaLosNegocios",
-    "Diario/23-09-2026.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/10-FranjasTricoloresPD.md",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/CXX.dd.tmpede6b",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202502/20212111_LAB2_P1/cmake-build-debug/CMakeFiles/20212111_LAB2_P1.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/main.cpp.obj.d",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/CXX.dd.tmp2a634",
-    "Cursos/AlgoritmosAvanzados/ProgramacionDinamica/Ejercicios/202601/20212111_LAB_P1/cmake-build-debug/CMakeFiles/20212111_LAB_P1.dir/CXX.dd.rsp",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/11-SubsetSumPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/12-CoinChangePD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/4-CompraDolaresPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/9-CoinLineProblemPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/3-ConjuntosPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/2-CoinRowPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/8-RobotWoodCutterPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/7-BirdCagePD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/6-KnapsackPD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/5-LongestIncreasingSubsequencePD.md",
-    "Cursos/AlgoritmosAvanzados/Examen Parcial/Cap2 - ProgramacionDinamica/Apuntes/1-FibonacciDP.md",
-    "Bienvenido.md"
-  ]
-  ]
+  "active": "804ea6a2c8f32951",
+  "lastOpenFiles": []
 }
